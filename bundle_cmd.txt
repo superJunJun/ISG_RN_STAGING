@@ -1,0 +1,14 @@
+#android
+#打android基础包
+node ./node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file common_dependence.js --bundle-output ./android/app/src/main/platform.android.bundle --assets-dest android/app/src/main/res/ --config xxx/jsbundle_common.config.js (绝对路径)
+#打android业务包
+node ./node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file index.js --bundle-output ./android/app/src/main/index.android.bundle --assets-dest android/app/src/main/res/ --config xxx/jsbundle_business.config.js (绝对路径)
+
+
+#iOS
+#打iOS基础包
+node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --dev false --entry-file common_dependence.js --bundle-output ios/platform.ios.bundle --assets-dest ios/ --config /Users/xxx/xxx/workspace/iSG_RN_staging/jsbundle_common.config.js 
+#打iOS业务包
+node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --dev false --entry-file index.js --bundle-output ios/index.ios.bundle --assets-dest ios/ --config xxx/jsbundle_business.config.js (绝对路径)
+
+

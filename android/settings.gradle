@@ -1,0 +1,3 @@
+rootProject.name = 'iSG_RN_staging'
+
+include ':app'
