@@ -1,50 +1,26 @@
 # ISG_RN_STAGING
 ## 准备工作
 - node.js环境（npm包管理器）
-- vue-cli 脚手架构建工具
-- cnpm  npm的淘宝镜像
 
 ## 开发运行
 ```bash
    
     # 安装依赖
     npm install
-    //or # 建议不要用cnpm  安装有各种诡异的bug 可以通过如下操作解决npm速度慢的问题
-    npm install --registry=https://registry.npm.taobao.org
-
+ 
     # 本地开发 开启服务
-    npm run dev
-```
-浏览器访问 http://localhost:9527
+    npm start
+    常见问题：1、关闭本地代理
 
-## 发布
-```bash
-    # 发布测试环境 带webpack ananalyzer
-    npm run build:sit-preview
-
-    # 构建生成环境
-    npm run build:prod
 ```
-### 部署nginx配置参考
-```
-  location / {
-        # 指向我们打包后上传的前端文件
-        root /opt/nginx/dist;
-        index index.html;
-    }
-    location /jwt/ {
-        # 转发请求到后端服务网关
-        proxy_pass http://127.0.0.1:8765/jwt/;
-    }
-    location /api/ {
-        proxy_pass http://127.0.0.1:8765/api/;
-     }
-```
+浏览器访问 http://localhost:8081
 
 ## 目录结构
 ```shell
 ├── build                      // 构建相关  
 ├── config                     // 配置相关
+├── ios                        // ios工程源代码
+├── android                    // android工程源代码
 ├── src                        // 源代码
 │   ├── api                    // 所有请求
 │   ├── assets                 // 主题 字体等静态资源
@@ -66,13 +42,32 @@
 ├── eslintrc.js                // eslint 配置项
 ├── .gitignore                 // git 忽略项
 ├── favicon.ico                // favicon图标
-├── index.html                 // html模板
+├── index.js                   // 项目入口
 └── package.json               // package.json
+├── bundle_cmd.txt             // 打包命令展示
+├── common_dependence.js       // 基础包打包依赖
+└── jsbundle.business.config.js               // 业务bundle 打包实现函数声明
+└── jsbundle.common.config.js                 // 基础bundle 打包实现函数声明
 
 ```
 
-## 状态管理
-后台只有user和app配置相关状态使用vuex存在全局，其它数据都由每个业务页面自己管理。
+## 版本要求
+react-native 版本  必须 0.57.0 （爱上岗平台引入react-native版本0.57.0）
+react 版本  0.16.5
+更多第三方控件及版本使用    参考common_dependence.js 及 package.json
+
+！版本必须严格相同 ！
+如有未引用第三方 请联系爱上岗工作人员 邮件地址：lijun@ishanggang.com
+
+## 发布
+```bash
+    # 发布测试
+    1. 参考bundle_cmd.txt 内容 分包打包
+    2. 以项目名创建文件（如fbi,保证唯一性）把业务包放入，压缩为zip 上传到爱上岗中控平台
+
+    # 构建生成环境
+    npm run build:prod
+```
 
 ## 感谢
 感谢作者：[PanJiaChen](https://github.com/PanJiaChen/vue-element-admin)
