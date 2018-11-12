@@ -10,7 +10,7 @@
  
     # 本地开发 开启服务
     npm start
-    常见问题：1、关闭本地代理
+    常见问题解决方案：1、关闭本地代理
 
 ```
 浏览器访问 http://localhost:8081
@@ -52,7 +52,10 @@
 ```
 
 ## 版本要求
-react-native 版本  必须 0.57.0 （爱上岗平台引入react-native版本0.57.0）
+react-native 版本:
+1. 必须 0.57.0 （爱上岗平台引入react-native版本0.57.0）
+2. 后续爱上岗RN环境如有多个版本，业务bundle需支持多个版本
+
 react 版本  0.16.5
 更多第三方控件及版本使用    参考common_dependence.js 及 package.json
 
@@ -62,15 +65,10 @@ react 版本  0.16.5
 ## 发布
 ```bash
     # 发布测试
-    1. 参考bundle_cmd.txt 内容 分包打包
-    2. 以项目名创建文件（如fbi,保证唯一性）把业务包放入，压缩为zip 上传到爱上岗中控平台
+    1. 参考bundle_cmd.txt内容 分包打包
+    2. 以项目名创建文件（如fbi,保证唯一性）把业务包放入，压缩为zip 标明项目版本，上传到爱上岗中控平台
 
-    # 构建生成环境
-    npm run build:prod
 ```
-
-## 感谢
-感谢作者：[PanJiaChen](https://github.com/PanJiaChen/vue-element-admin)
 
 ## License
 
